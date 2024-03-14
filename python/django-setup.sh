@@ -37,9 +37,11 @@ echo '{
 
 echo '{
     "pylint.args": [
+        "--disable=W0105,E1101,W0614,C0111,C0301",
         "--load-plugins=pylint_django",
-        "--django-settings-module='${PROJECT_NAME}'project.settings",
-    ]
+        "--django-settings-module=bangazon.settings",
+        "--max-line-length=120"
+    ],
 }
 ' > ./.vscode/settings.json
 
