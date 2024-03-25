@@ -220,3 +220,9 @@ pipenv run bash -c "python3 manage.py migrate"
 git init
 git add --all
 git commit -m "Initial commit"
+
+echo "**********************************"
+echo ""
+echo "Open your Pipfile in the project and make sure that the right version of Python is specified at the bottom"
+echo ""
+echo "**********************************"
