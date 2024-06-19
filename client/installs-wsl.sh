@@ -56,7 +56,7 @@ echo -e "\n\nInstalling a web server and a simple API server..."
 npm config set prefix $HOME/.npm-packages
 echo 'export PATH="$PATH:$HOME/.npm-packages/bin"' >> $HOME/.profile
 source $HOME/.profile &>profile-reload.log
-npm i -g serve json-server >>progress.log 2>>error.log
+npm i -g serve json-server@0.17.4 >>progress.log 2>>error.log
 
 # Add SSH key to Github account
 echo -e "\n\nAdding your SSH key to your Github account..."
