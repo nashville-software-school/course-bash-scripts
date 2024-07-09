@@ -177,6 +177,8 @@ code --install-extension ms-vsliveshare.vsliveshare --force
 code --install-extension cardinal90.multi-cursor-case-preserve --force
 code --install-extension ms-vscode-remote.vscode-remote-extensionpack --force
 code --install-extension laurenttreguier.vscode-simple-icons --force
+code --install-extension bocovo.dbml-erd-visualizer --force
+code --install-extension matt-meyers.vscode-dbml --force
 
 
 # BEGIN verification
