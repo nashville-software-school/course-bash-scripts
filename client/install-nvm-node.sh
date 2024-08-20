@@ -16,4 +16,4 @@ echo -e "\nInstalling a web server and a simple API server..."
 npm config set prefix $HOME/.npm-packages
 echo 'export PATH="$PATH:$HOME/.npm-packages/bin"' >>~/.zshrc
 source ~/.zshrc &>zsh-reload.log
-npm i -g serve json-server json
+npm i -g serve json-server@0.17.4 json
