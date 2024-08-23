@@ -1,4 +1,4 @@
-PYTHON_VERSION=3.12.5
+PYTHON_VERSION=3.12
 
 echo "Installing VS Code Extensions"
 code --install-extension ms-python.python --force
