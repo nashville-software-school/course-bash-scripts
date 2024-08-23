@@ -1,5 +1,16 @@
-PYTHON_VERSION=3.10
+# Define the Python download URL prefix
+PYTHON_DOWNLOAD_URL_PREFIX="https://www.python.org/ftp/python"
 
+# Fetch the list of available Python versions
+VERSION_LIST=$(curl -s "$PYTHON_DOWNLOAD_URL_PREFIX/" | grep -oP '(?<=href=")[0-9]+\.[0-9]+\.[0-9]+(?=/")')
+
+# Filter out non-stable versions (e.g., alphas, betas, release candidates)
+STABLE_VERSIONS=$(echo "$VERSION_LIST" | grep -E '^[0-9]+\.[0-9]*[02468]\.[0-9]+$')
+
+# Get the latest stable version
+LATEST_STABLE_VERSION=$(echo "$STABLE_VERSIONS" | sort -V | tail -n 1)
+
+PYTHON_VERSION=$LATEST_STABLE_VERSION
 
 echo "Installing VS Code Extensions"
 code --install-extension ms-python.python --force
