@@ -32,7 +32,17 @@ done
 echo -e "\n\nUpdating the Ubuntu operating system..."
 sudo apt-get update -y >>/dev/null 2>>error.log
 sudo apt-get dist-upgrade -y >>/dev/null 2>>error.log
-sudo apt install -y curl file build-essential libssl-dev libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb  >>/dev/null 2>>error.log
+sudo apt install -y curl file build-essential libssl-dev libgtk2.0-0 libgtk-3.0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb  >>/dev/null 2>>error.log
+
+# Install Homebrew
+echo -e "\nInstalling Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &>/dev/null
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Add Homebrew to PATH
+echo 'eval "$(<Homebrew prefix path>/bin/brew shellenv)"' >> ~/.zshrc
+source ~/.zshrc &>zsh-reload.log
 
 # Switch to Zsh
 ZSH_FOLDER=$HOME/.oh-my-zsh
@@ -65,7 +75,6 @@ PUBLIC_KEY=$(cat $HOME/.ssh/id_nss.pub)
 STATUS_CODE=$(curl \
   -s \
   --write-out %{http_code} \
-  -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GH_PWD" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
@@ -166,20 +175,18 @@ git config --global user.name "$studentName"
 git config --global user.email $emailAddress
 # End Git set
 
-
 echo "Installing VS Code Extensions"
 code --install-extension streetsidesoftware.code-spell-checker --force
 code --install-extension ms-python.black-formatter --force
 code --install-extension formulahendry.auto-close-tag --force
 code --install-extension fosshaas.fontsize-shortcuts --force
 code --install-extension ecmel.vscode-html-css --force
-code --install-extension ms-vsliveshare.vsliveshare --force
+code --install-extension ms-vsliveshare.vsliveserve --force
 code --install-extension cardinal90.multi-cursor-case-preserve --force
 code --install-extension ms-vscode-remote.vscode-remote-extensionpack --force
-code --install-extension laurenttreguier.vscode-simple-icons --force
+code --install-extension laurenttreguerr.vscode-simple-icons --force
 code --install-extension bocovo.dbml-erd-visualizer --force
 code --install-extension matt-meyers.vscode-dbml --force
-
 
 # BEGIN verification
 echo -e "\n\n\n\n"
