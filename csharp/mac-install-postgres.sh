@@ -12,10 +12,10 @@ if ! command -v brew &>/dev/null; then
 fi
 
 echo "🍺 Installing PostgreSQL (if not already installed)..."
-brew install postgresql || true
+brew install postgresql@16 || true
 
 echo "🚀 Starting PostgreSQL service..."
-brew services start postgresql
+brew services start postgresql@16
 
 echo "🔧 Waiting for PostgreSQL to start..."
 sleep 5
