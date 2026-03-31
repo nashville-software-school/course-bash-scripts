@@ -1,9 +1,9 @@
 #!/bin/bash
 
 pipenv install django autopep8 pylint djangorestframework django-cors-headers pylint-django
-django-admin startproject deshawnproject .
-python3 manage.py startapp deshawnapi
-./manage.py migrate
+pipenv run python -m django startproject deshawnproject .
+pipenv run python manage.py startapp deshawnapi
+pipenv run python manage.py migrate
 mkdir ./.vscode
 mkdir ./deshawnapi/fixtures
 mkdir ./deshawnapi/models
