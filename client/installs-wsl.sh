@@ -34,16 +34,6 @@ sudo apt-get update -y >>/dev/null 2>>error.log
 sudo apt-get dist-upgrade -y >>/dev/null 2>>error.log
 sudo apt install -y curl file build-essential libssl-dev libgtk2.0-0 libgtk-3.0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb  >>/dev/null 2>>error.log
 
-# Install Homebrew
-echo -e "\nInstalling Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &>/dev/null
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# Add Homebrew to PATH
-echo 'eval "$(<Homebrew prefix path>/bin/brew shellenv)"' >> ~/.zshrc
-source ~/.zshrc &>zsh-reload.log
-
 # Switch to Zsh
 ZSH_FOLDER=$HOME/.oh-my-zsh
 if [ ! -d "$FOLDER" ]; then
